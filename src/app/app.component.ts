@@ -18,20 +18,8 @@ import { AppState } from './app.service';
   template: `
     <nav>
       <span>
-        <a [routerLink]=" ['./'] ">
-          Index
-        </a>
-      </span>
-      |
-      <span>
         <a [routerLink]=" ['./home'] ">
           Home
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./detail'] ">
-          Detail
         </a>
       </span>
       |
@@ -49,12 +37,7 @@ import { AppState } from './app.service';
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
     <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
+      <span>WebPack Angular 2 Starter</span>
     </footer>
   `
 })
