@@ -22,9 +22,6 @@
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
     "docker": "docker",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
-    "github-deploy:dev": "webpack --config config/webpack.github-deploy.js --progress --profile --env.githubDev",
-    "github-deploy:prod": "webpack --config config/webpack.github-deploy.js --progress --profile --env.githubProd",
-    "github-deploy": "npm run github-deploy:dev",
     "lint": "npm run tslint \"src/**/*.ts\"",
     "postversion": "git push && git push --tags",
     "prebuild:dev": "npm run clean:dist",
@@ -126,13 +123,6 @@
     "webpack-dev-server": "2.1.0-beta.11",
     "webpack-md5-hash": "^0.0.5",
     "webpack-merge": "~1.0.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
   },
   "engines": {
     "node": ">= 4.2.1",
