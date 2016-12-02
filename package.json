@@ -31,7 +31,6 @@
     "prebuild:prod": "npm run clean:dist",
     "preclean:install": "npm run clean",
     "preclean:start": "npm run clean",
-    "pree2e": "npm run webdriver:update -- --standalone",
     "preversion": "npm test",
     "rimraf": "rimraf",
     "server:dev:hmr": "npm run server:dev -- --inline --hot",
