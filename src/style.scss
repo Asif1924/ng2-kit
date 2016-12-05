@@ -1,0 +1,12 @@
+@import "app/app.component.scss";
+
+@import "app/home/home.component.scss";
+
+/*Variables*/
+$mainTextColor: #ffffff;
+$mainBackGroundColor: #00b3ee;
+
+h1 {
+  background-color: $mainBackGroundColor;
+  color: $mainTextColor;
+}

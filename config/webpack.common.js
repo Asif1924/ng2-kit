@@ -56,10 +56,10 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'vendor':    './src/vendor.browser.ts',
-      'main':      './src/main.browser.ts'
-
+      'polyfills'   : './src/polyfills.browser.ts',
+      'vendor'      : './src/vendor.browser.ts',
+      'main'        : './src/main.browser.ts',
+      'style'       : './src/style.scss'
     },
 
     /*
@@ -87,7 +87,6 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#module
      */
     module: {
-
       rules: [
 
         /*
@@ -142,10 +141,15 @@ module.exports = function (options) {
         /* File loader for supporting images, for example, in CSS files.
          */
         {
-          test: /\.(jpg|png|gif)$/,
+          test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2|otf)$/,
           use: 'file-loader'
         },
 
+        {
+          test: /\.scss$/,
+          exclude: /node_modules/,
+          loaders: ["style-loader", "css-loader", "sass-loader"]
+        }
       ],
 
     },
