@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ValidationService } from './../application-services/validation.service';
-import { AuthenticationService } from './../application-services/authentication-service';
+import { ValidationService } from './../app-services/validation.service';
+import { AuthenticationService } from './../app-services/authentication-service';
 
 @Component({
-    moduleId: module.id,
-    templateUrl: "authentication.html",
-    styleUrls: ['authentication.scss']
+    templateUrl: "./authentication.component.html"
 })
 
 export class AuthenticationComponent {

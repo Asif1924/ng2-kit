@@ -1,62 +1,65 @@
-/*
- * Angular 2 decorators and services
- */
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { AppState } from './app.service';
+import { AuthenticationService } from './app-services/authentication-service';
 
-/*
- * App Component
- * Top Level Component
- */
+
 @Component({
   selector: 'app',
-  template: `
-    <nav>
-      <span>
-        <a [routerLink]=" ['./home'] ">
-          Home
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./about'] ">
-          About
-        </a>
-      </span>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      <span>WebPack Angular 2 Starter</span>
-    </footer>
-  `
+  templateUrl: "./application.component.html"
 })
+
 export class AppComponent {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
-
+    
   constructor(
-    public appState: AppState) {
+        private userService: AuthenticationService,
+        private router: Router,
+        public appState: AppState
+        ) {
+        console.log("Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here");
+    }
 
-  }
+    // -----------------------------------------
+    // Directive and component change detection and lifecycle
+    // -----------------------------------------
 
-  ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-  }
+    ngOnInit() {
+        console.log('Initial App State', this.appState.state);
+        // console.log ("Called after the constructor, initializing input properties, and the first call to ngOnChanges");
+    }
 
+    ngOnChanges() {
+        // console.log ("Called after every change to input properties and before processing content or child views");
+    }
+
+    ngDoCheck() {
+        //console.log ("Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.");
+    }
+
+    ngAfterContentInit() {
+        //console.log ("Called after ngOnInit when the component's or directive's content has been initialized");
+    }
+
+    ngAfterViewInit() {
+        //console.log ("Called after ngAfterContentInit when the component's view has been initialized. Applies to components only");
+    }
+
+    ngAfterViewChecked() {
+        //console.log ("Called after every check of the component's view. Applies to components only.");
+    }
+
+    ngOnDestroy() {
+        //console.log ("Called once, before the instance is destroyed");
+    }
+
+    // -----------------------------------------
+    // Component methods
+    // -----------------------------------------
+
+    logOut() {
+        this.userService.logout();
+        if (!this.userService.isLoggedIn()) {
+            this.router.navigate(['authentication']);
+        }
+    }
 }
-
-/*
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */

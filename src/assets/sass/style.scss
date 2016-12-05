@@ -1,6 +1,5 @@
-@import "app/app.component.scss";
-
-@import "app/home/home.component.scss";
+@import "_normalize.scss";
+@import "../../app/app.component.scss";
 
 /*Variables*/
 $mainTextColor: #ffffff;

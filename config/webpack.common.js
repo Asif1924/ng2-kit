@@ -59,7 +59,7 @@ module.exports = function (options) {
       'polyfills'   : './src/polyfills.browser.ts',
       'vendor'      : './src/vendor.browser.ts',
       'main'        : './src/main.browser.ts',
-      'style'       : './src/style.scss'
+      'style'       : './src/assets/sass/style.scss'
     },
 
     /*
