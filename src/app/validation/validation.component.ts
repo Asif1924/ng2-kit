@@ -1,12 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ValidationService } from './../application-services/validation.service';
+import { ValidationService } from './../app-services/validation.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'validation-messages',
-    templateUrl: "validation-messages.html",
-    styleUrls: ['validation-messages.scss']
+    templateUrl: "validation.component.html"
 })
 
 export class ValidationMessages {

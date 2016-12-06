@@ -5,7 +5,7 @@ import { ValidationService } from './../app-services/validation.service';
 import { AuthenticationService } from './../app-services/authentication-service';
 
 @Component({
-    templateUrl: "./authentication.component.html"
+    templateUrl: "authentication.component.html"
 })
 
 export class AuthenticationComponent {

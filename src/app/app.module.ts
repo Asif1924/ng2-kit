@@ -19,6 +19,7 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { AuthenticationComponent } from './authentication';
+import { ValidationMessages } from './validation';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,7 +42,8 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ValidationMessages
   ],
   imports: [ // import Angular's modules
     BrowserModule,

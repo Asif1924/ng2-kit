@@ -5,7 +5,6 @@ import { AuthenticationComponent } from './authentication';
 import { NoContentComponent } from './no-content';
 import { DataResolver } from './app.resolver';
 import { LoggedInGuard } from './app-services/logged-in.guard';
-
 import { ModuleWithProviders } from "@angular/core";
 
 const appRoutes: Routes = [
