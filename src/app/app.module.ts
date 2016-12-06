@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from "@angular/forms";
 import { LoggedInGuard } from './app-services/logged-in.guard';
+import { Http, Response } from '@angular/http';
 
 //Platform and Environment providers/directives/pipes
 import { ENV_PROVIDERS } from './environment';
@@ -19,6 +20,9 @@ import { AboutModule } from './about/about.module';
 import { NoContentModule } from './404/no.content.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 
+// internationalization
+import { TranslateModule, TranslateService, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+
 // Application wide providers
 const APP_PROVIDERS = [
     AppState,
@@ -32,6 +36,10 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
+export function createTranslateLoader(http: Http) {
+    return new TranslateStaticLoader(http, './../assets/i18n', '.json');
+}
+
 // AppModule` is the main entry point into Angular2's bootstraping process
 @NgModule({
   declarations: [ AppComponent ],
@@ -40,6 +48,12 @@ type StoreType = {
     BrowserModule,
     HttpModule,
     routing,
+
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http] 
+    }),
 
     //application modules
     AuthenticationModule,

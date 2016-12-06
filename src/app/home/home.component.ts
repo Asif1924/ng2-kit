@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppState } from '../app.service';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'home',
@@ -9,10 +10,18 @@ import { AppState } from '../app.service';
 export class HomeComponent {
   // Set our default values
   localState = { value: '' };
-  
-  constructor(public appState: AppState) {
 
-  }
+  constructor(
+        private translate: TranslateService,
+        public appState: AppState
+        ) {
+            translate.addLangs(["en", "fr"]);
+            translate.setDefaultLang('en');
+
+            let browserLang = translate.getBrowserLang();
+            translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    }
+
 
   ngOnInit() {
     console.log('%c`Home` component', 'background: green; color: white; display: block; padding: 2px 10px; font-size: 15px;');

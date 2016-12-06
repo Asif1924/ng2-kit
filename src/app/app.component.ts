@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppState } from './app.service';
 import { AuthenticationService } from './app-services/authentication-service';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app',
@@ -11,12 +12,11 @@ import { AuthenticationService } from './app-services/authentication-service';
 export class AppComponent {
     
   constructor(
+        private translate: TranslateService,
         private userService: AuthenticationService,
         private router: Router,
         public appState: AppState
-        ) {
-        console.log("Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here");
-    }
+        ) { }
 
     // -----------------------------------------
     // Directive and component change detection and lifecycle
