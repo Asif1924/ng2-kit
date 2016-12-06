@@ -6,25 +6,28 @@ import { FormsModule, FormBuilder, ReactiveFormsModule } from "@angular/forms";
 import { LoggedInGuard } from './app-services/logged-in.guard';
 import { AuthenticationService } from './app-services/authentication-service';
 
-/*
- * Platform and Environment providers/directives/pipes
- */
+//Platform and Environment providers/directives/pipes
 import { ENV_PROVIDERS } from './environment';
 import { routing, appRoutingProviders } from './app.routes';
+
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
+import { NoContentComponent } from './404';
 import { AuthenticationComponent } from './authentication';
 import { ValidationMessages } from './validation';
 
 // Application wide providers
 const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
-  AppState
+    ...APP_RESOLVER_PROVIDERS,
+    AppState,
+    FormBuilder,
+    appRoutingProviders,
+    AuthenticationService,
+    LoggedInGuard
 ];
 
 type StoreType = {
@@ -33,9 +36,7 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
+// AppModule` is the main entry point into Angular2's bootstraping process
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,11 +56,7 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS,
-    FormBuilder,
-    appRoutingProviders,
-    AuthenticationService,
-    LoggedInGuard
+    APP_PROVIDERS
   ],
   bootstrap: [ AppComponent ]
 })

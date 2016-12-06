@@ -6,7 +6,7 @@ import { AuthenticationService } from './app-services/authentication-service';
 
 @Component({
   selector: 'app',
-  templateUrl: "./application.component.html"
+  templateUrl: "./app.component.html"
 })
 
 export class AppComponent {
