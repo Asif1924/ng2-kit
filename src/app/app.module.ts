@@ -4,7 +4,6 @@ import { HttpModule } from '@angular/http';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from "@angular/forms";
 import { LoggedInGuard } from './app-services/logged-in.guard';
-import { AuthenticationService } from './app-services/authentication-service';
 
 //Platform and Environment providers/directives/pipes
 import { ENV_PROVIDERS } from './environment';
@@ -14,19 +13,21 @@ import { routing, appRoutingProviders } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './404';
-import { AuthenticationComponent } from './authentication';
-import { ValidationMessages } from './validation';
+
+// App modules
+import { HomeModule } from './home/home.module';
+import { AboutModule } from './about/about.module';
+import { NoContentModule } from './404/no.content.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+
+// validation
+
 
 // Application wide providers
 const APP_PROVIDERS = [
     ...APP_RESOLVER_PROVIDERS,
     AppState,
-    FormBuilder,
     appRoutingProviders,
-    AuthenticationService,
     LoggedInGuard
 ];
 
@@ -38,23 +39,21 @@ type StoreType = {
 
 // AppModule` is the main entry point into Angular2's bootstraping process
 @NgModule({
-  declarations: [
-    AppComponent,
-    AboutComponent,
-    HomeComponent,
-    NoContentComponent,
-    AuthenticationComponent,
-    ValidationMessages
-  ],
-  imports: [ // import Angular's modules
+  declarations: [ AppComponent ],
+  imports: [ 
+    // import Angular's modules
     BrowserModule,
-    FormsModule,
     HttpModule,
-    FormsModule,
-    ReactiveFormsModule,
     routing,
+
+    //application
+    AuthenticationModule,
+    NoContentModule,
+    AboutModule,
+    HomeModule
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+  providers: [ 
+    // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS
   ],

@@ -1,11 +1,12 @@
+import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { LoggedInGuard } from './app-services/logged-in.guard';
+
+//application components
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { AuthenticationComponent } from './authentication';
 import { NoContentComponent } from './404';
-import { DataResolver } from './app.resolver';
-import { LoggedInGuard } from './app-services/logged-in.guard';
-import { ModuleWithProviders } from "@angular/core";
 
 const appRoutes: Routes = [
     { path: 'authentication',     component: AuthenticationComponent },

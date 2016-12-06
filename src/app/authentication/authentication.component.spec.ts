@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { inject, TestBed } from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import { AboutComponent } from './about.component';
+import { AuthenticationComponent } from './authentication.component';
 
-describe('About', () => {
+describe('authentication', () => {
   // provide our implementations or mocks to the dependency injector
   beforeEach(() => TestBed.configureTestingModule({
     
   }));
 
-  it('should log ngOnInit', inject([AboutComponent], (about: AboutComponent) => {
+  it('should log ngOnInit', inject([AuthenticationComponent], (authentication: AuthenticationComponent) => {
     spyOn(console, 'log');
     expect(console.log).not.toHaveBeenCalled();
 
-    about.ngOnInit();
+    authentication.ngOnInit();
     expect(console.log).toHaveBeenCalled();
   }));
 
