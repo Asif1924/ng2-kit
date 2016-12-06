@@ -1,6 +1,7 @@
 import { inject, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
+import { TranslateService, TranslateModule, TranslateLoader, TranslateParser } from 'ng2-translate';
 
 // Load the implementations that should be tested
 import { AppState } from '../app.service';
@@ -11,6 +12,7 @@ describe('Home', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
       BaseRequestOptions,
+      TranslateService, TranslateModule, TranslateLoader, TranslateParser,
       AppState,
       HomeComponent
     ]

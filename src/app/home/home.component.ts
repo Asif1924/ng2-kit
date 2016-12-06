@@ -12,16 +12,9 @@ export class HomeComponent {
   localState = { value: '' };
 
   constructor(
-        private translate: TranslateService,
-        public appState: AppState
-        ) {
-            translate.addLangs(["en", "fr"]);
-            translate.setDefaultLang('en');
-
-            let browserLang = translate.getBrowserLang();
-            translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
-    }
-
+    private translate: TranslateService,
+    public appState: AppState
+    ) { }
 
   ngOnInit() {
     console.log('%c`Home` component', 'background: green; color: white; display: block; padding: 2px 10px; font-size: 15px;');

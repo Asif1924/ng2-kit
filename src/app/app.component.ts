@@ -16,7 +16,13 @@ export class AppComponent {
         private userService: AuthenticationService,
         private router: Router,
         public appState: AppState
-        ) { }
+        ) {
+            translate.addLangs(["en", "fr"]);
+            translate.setDefaultLang('en');
+
+            let browserLang = translate.getBrowserLang();
+            translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+         }
 
     // -----------------------------------------
     // Directive and component change detection and lifecycle
