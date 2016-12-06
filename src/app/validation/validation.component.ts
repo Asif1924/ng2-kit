@@ -7,9 +7,13 @@ import { ValidationService } from './../app-services/validation.service';
     templateUrl: "validation.component.html"
 })
 
-export class ValidationMessages {
+export class ValidationMessagesComponent {
     @Input() control: FormControl;
     constructor() { }
+
+    ngOnInit(){
+        console.log('`Validation Message` component');
+    }
 
     get errorMessage() {
         for (let propertyName in this.control.errors) {

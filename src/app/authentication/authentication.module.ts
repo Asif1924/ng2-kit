@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthenticationComponent } from './authentication.component';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from "@angular/forms";
 import { AuthenticationService } from './../app-services/authentication-service';
-import { ValidationMessages } from './../validation';
+import { ValidationMessagesComponent } from './../validation';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import { ValidationMessages } from './../validation';
     FormsModule,
     ReactiveFormsModule,
   ],
-  declarations: [ AuthenticationComponent, ValidationMessages ],
+  declarations: [ AuthenticationComponent, ValidationMessagesComponent ],
   exports: [ AuthenticationComponent ],
   providers:[ AuthenticationService, FormBuilder ]
 })

@@ -20,9 +20,6 @@ import { AboutModule } from './about/about.module';
 import { NoContentModule } from './404/no.content.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 
-// validation
-
-
 // Application wide providers
 const APP_PROVIDERS = [
     ...APP_RESOLVER_PROVIDERS,
@@ -46,7 +43,7 @@ type StoreType = {
     HttpModule,
     routing,
 
-    //application
+    //application modules
     AuthenticationModule,
     NoContentModule,
     AboutModule,

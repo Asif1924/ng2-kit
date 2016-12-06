@@ -7,7 +7,7 @@ import { AboutComponent } from './about.component';
 describe('About', () => {
   // provide our implementations or mocks to the dependency injector
   beforeEach(() => TestBed.configureTestingModule({
-    
+    providers: [ AboutComponent ]
   }));
 
   it('should log ngOnInit', inject([AboutComponent], (about: AboutComponent) => {
