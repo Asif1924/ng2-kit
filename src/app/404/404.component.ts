@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class NoContentComponent {
 
     ngOnInit() {
-      console.log('`Not-Found` component');
+      console.log('%c`Not-Found` component', 'background: green; color: white; display: block; padding: 2px 10px; font-size: 15px;');
     }
 }

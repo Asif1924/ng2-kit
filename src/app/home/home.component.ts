@@ -15,7 +15,7 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-    console.log('`Home` component');
+    console.log('%c`Home` component', 'background: green; color: white; display: block; padding: 2px 10px; font-size: 15px;');
   }
 
   submitState(value: string) {

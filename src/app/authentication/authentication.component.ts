@@ -15,6 +15,7 @@ export class AuthenticationComponent {
     constructor(private _fb: FormBuilder, private userService: AuthenticationService, private router: Router) {}
 
     ngOnInit() {
+        console.log('%c`Authentication` component', 'background: green; color: white; display: block; padding: 2px 10px; font-size: 15px;');
         this.authenticationForm = new FormGroup({
             email       : new FormControl('', [<any>Validators.required, ValidationService.emailValidator]),
             password    : new FormControl('', [<any>Validators.required, ValidationService.passwordValidator])

@@ -13,6 +13,6 @@ export class AboutComponent {
   }
 
   ngOnInit() {
-      console.log('`About` component');
+    console.log('%c`About` component', 'background: green; color: white; display: block; padding: 2px 10px; font-size: 15px;');
   }
 }

@@ -23,7 +23,7 @@ export class AppComponent {
     // -----------------------------------------
 
     ngOnInit() {
-        console.log('Initial App State', this.appState.state);
+        console.log('%c`Main App` component', 'background: #999; color: white; display: block; padding: 2px 10px; font-size: 15px;');
         // console.log ("Called after the constructor, initializing input properties, and the first call to ngOnChanges");
     }
 

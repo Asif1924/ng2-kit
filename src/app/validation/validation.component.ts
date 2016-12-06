@@ -12,7 +12,7 @@ export class ValidationMessagesComponent {
     constructor() { }
 
     ngOnInit(){
-        console.log('`Validation Message` component');
+        console.log('%c`Validation Message` component', 'background: green; color: white; display: block; padding: 2px 10px; font-size: 15px;');
     }
 
     get errorMessage() {
