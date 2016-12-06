@@ -11,7 +11,6 @@ import { routing, appRoutingProviders } from './app.routes';
 
 // App is our top level component
 import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
 // App modules
@@ -22,7 +21,6 @@ import { AuthenticationModule } from './authentication/authentication.module';
 
 // Application wide providers
 const APP_PROVIDERS = [
-    ...APP_RESOLVER_PROVIDERS,
     AppState,
     appRoutingProviders,
     LoggedInGuard
